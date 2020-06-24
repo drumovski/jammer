@@ -1,0 +1,12 @@
+<h1>Index page</h1>
+<ol>
+<% @songs.each do |s|%>
+<li>Title: <%= s.title%></li>
+<li>Program: <%= s.program%></li>
+<li>Order: <%= s.order%></li>
+<li>Notes: <%= s.notes%></li>
+<li>Lyrics: <%= s.lyrics%></li>
+<li>Tempo: <%= s.tempo%></li>
+</ol>
+<br>
+<%end%>
