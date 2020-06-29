@@ -1,13 +1,15 @@
 class SongsController < ApplicationController
-    def index
+
+def index
         @songs = Song.all
     end
 
     def new
+        @song = Song.new
     end
 
     def show
-        @song = Song.find[params[:id]]
+        @song = Song.find(params[:id])
     end
 
     def create
@@ -25,12 +27,20 @@ class SongsController < ApplicationController
     end
 
     def edit
+        @song = Song.find(params[:id])
     end
 
     def update
+        @song = Song.find(params[:id])
+        @song.update(song_params)
+        redirect_to songs_path
     end
 
     def remove
+        @song = Song.find(params[:id])
+        @song.destroy
+     
+        redirect_to songs_path
     end
 
     private

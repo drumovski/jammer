@@ -6,11 +6,13 @@
 <br>
 <p>Order: <%= @song["order"]%></p>
 <br>
+<p>Tempo: <%= @song["tempo"]%></p>
+<br>
 <p>Notes: <%= @song["notes"]%></p>
 <br>
 <p>Lyrics: <%= @song["lyrics"]%></p>
 <br>
-<p>Tempo: <%= @song["tempo"]%></p>
-<br>
-
+    <%= link_to 'Remove song', song_path(@song), method: :delete, data: { confirm: 'Are you sure?' } %>
+    <%= link_to 'Edit song', edit_song_path(@song) %>
+    <%= link_to 'Index', songs_path %>
 

@@ -1,0 +1,19 @@
+// Place all the styles related to the songs controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+.song-box{
+    border: 1px solid green;
+    min-width: 200px;
+    min-height: 200px;
+    color: red;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row; 
+
+}
+.song {
+    border: 1px solid blue;
+    min-width: 100px;
+    min-height: 100px;
+}

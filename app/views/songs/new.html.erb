@@ -1,32 +1,8 @@
 <h1>New page</h1>
 
-  <%# # A Song || Songs
-  # Title:
-  # Notes:
-  # Lyrics:
-  # Tempo:
-  # Drum Program: %>
+<%= link_to 'Index page', songs_path %>
 
-<form action="<%=songs_path%>" method="POST" >
-    <input type="hidden" value="<%=form_authenticity_token%>" name="authenticity_token">
-
-    <label> Title</label>
-    <input type="text" name="song[title]">
-<br>
-    <label> Program </label>
-    <input type="number" name="song[program]" min="1">
-    <br>
-    <label>Set list order</label>
-    <input type="number" name="song[order]" min="1">
-    <br>
-    <label> Notes </label>
-    <textarea name="song[notes]" rows="10" cols="30">Enter song notes here</textarea>
-<br>
-    <label> Lyrics </label>
-    <textarea name="song[lyrics]" rows="10" cols="30">Enter song lyrics here</textarea>
-<br>
-    <label> Tempo </label>
-    <input type="number" name="song[tempo]" min="1">
-    <br>
+<form action="<%=songs_path%>" method="POST">
+<%= render 'form' %>
     <input type="submit" value="Create song">
 </form>

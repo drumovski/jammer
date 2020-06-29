@@ -1,12 +1,21 @@
-<h1>Index page</h1>
-<ol>
-<% @songs.each do |s|%>
-<li>Title: <%= s.title%></li>
-<li>Program: <%= s.program%></li>
-<li>Order: <%= s.order%></li>
-<li>Notes: <%= s.notes%></li>
-<li>Lyrics: <%= s.lyrics%></li>
-<li>Tempo: <%= s.tempo%></li>
-</ol>
-<br>
+<h1>All Songs</h1>
+<%= link_to 'Index page', songs_path %>
+<%= link_to 'New song', new_song_path %>
+<div class = "song-box">
+<% @songs.each do |song|%>
+<div class = "song">
+  <ol>
+    <li>Title: <%= song.title%></li>
+    <li>Program: <%= song.program%></li>
+    <li>Order: <%= song.order%></li>
+    <li>Tempo: <%= song.tempo%></li>
+    <li>Notes: <%= song.notes%></li>
+    <li>Lyrics: <%= song.lyrics%></li>
+    <%= link_to 'Remove song', song_path(song), method: :delete, data: { confirm: 'Are you sure?' } %>
+    <%= link_to 'Edit song', edit_song_path(song) %>
+    <%= link_to 'Show song', song_path(song) %>
+    <br>
+  </ol>
+  </div>
+  </div>
 <%end%>
