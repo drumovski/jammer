@@ -1,0 +1,13 @@
+<h1>All Members</h1>
+<%= link_to 'Songs page', songs_path %>
+<%= link_to 'New member', new_member_path %>
+<div class = "song-box">
+  <% @members.each do |member| %>
+    <div class = "song">
+      <ul>
+        <li class = "Member:"><%= member.name%></li>
+        <br>
+      </ul>
+    </div>
+  <%end%>
+</div>

@@ -12,7 +12,12 @@
 <br>
 <p>Lyrics: <%= @song["lyrics"]%></p>
 <br>
-    <%= link_to 'Remove song', song_path(@song), method: :delete, data: { confirm: 'Are you sure?' } %>
+
+ <p>Members:<% @song.members.each do |member| %>
+ <%= member.name %>, 
+<%end%>
+</p>
+   <%= link_to 'Remove song', song_path(@song), method: :delete, data: { confirm: 'Are you sure?' } %>
     <%= link_to 'Edit song', edit_song_path(@song) %>
     <%= link_to 'Index', songs_path %>
 

@@ -1,26 +1,2 @@
 <%= link_to 'Index page', songs_path %>
-
-<form action="<%=song_path(params[:id])%>" method="POST" >
-<%# <%= render 'form' %>
-    <input type="hidden" value="<%=form_authenticity_token%>" name="authenticity_token">
-    <input type="hidden" name="_method" value="PATCH">
-    <label> Title</label>
-    <input type="text" name="song[title]" value="<%=@song.title%>">
-    <br>
-    <label> Program </label>
-    <input type="number" name="song[program]" min="1" value= "163">
-    <br>
-    <label>Set list order</label>
-    <input type="number" name="song[order]" min="1">
-    <br>
-    <label> Tempo </label>
-    <input type="number" name="song[tempo]" min="1">
-    <br>
-    <label> Notes </label>
-    <textarea name="song[notes]" rows="10" cols="30">Enter song notes here</textarea>
-    <br>
-    <label> Lyrics </label>
-    <textarea name="song[lyrics]" rows="10" cols="30">Enter song lyrics here</textarea>
-    <br>
-    <input type="submit" value="Save song">
-</form>
+<%= render 'form' %>

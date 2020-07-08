@@ -1,19 +1,29 @@
-    <input type="hidden" value="<%=form_authenticity_token%>" name="authenticity_token">
-    <label> Title</label>
-    <input type="text" name="song[title]">
-    <br>
-    <label> Program </label>
-    <input type="number" name="song[program]" min="1" value= "163">
-    <br>
-    <label>Set list order</label>
-    <input type="number" name="song[order]" min="1">
-    <br>
-    <label> Tempo </label>
-    <input type="number" name="song[tempo]" min="1">
-    <br>
-    <label> Notes </label>
-    <textarea name="song[notes]" rows="10" cols="30">Enter song notes here</textarea>
-    <br>
-    <label> Lyrics </label>
-    <textarea name="song[lyrics]" rows="10" cols="30">Enter song lyrics here</textarea>
-    <br>
+<%= form_with model: @song, local: true do |form| %>
+  <p>
+    <%= form.label :title %><br>
+    <%= form.text_field :title %>
+  </p>
+  <p>
+    <%= form.label :program %><br>
+    <%= form.text_area :order %>
+  </p>
+  <p>
+    <%= form.label :notes %><br>
+    <%= form.text_area :notes %>
+  </p>
+  <p>
+    <%= form.label :lyrics %><br>
+    <%= form.text_area :lyrics %>
+  </p>
+  <p>
+    <%= form.label :tempo %><br>
+    <%= form.number_field :tempo %>
+  </p>
+  <p>
+      <%= form.label :members %>
+      <%=  form.collection_check_boxes :members, @members, :id, :name, include_hidden: false %>
+  </p>
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'members/index'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
   # A Song || Songs
@@ -18,5 +19,7 @@ Rails.application.routes.draw do
   get "songs/:id/edit", to: "songs#edit", as: "edit_song"
   patch "songs/:id/", to: "songs#update"
   delete "songs/:id", to: "songs#remove"
+
+  resources :members
 
 end

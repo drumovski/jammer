@@ -1,21 +1,28 @@
 <h1>All Songs</h1>
 <%= link_to 'Index page', songs_path %>
 <%= link_to 'New song', new_song_path %>
+<%= link_to 'Members page', members_path %>
 <div class = "song-box">
-<% @songs.each do |song|%>
-<div class = "song">
-  <ol>
-    <li>Title: <%= song.title%></li>
-    <li>Program: <%= song.program%></li>
-    <li>Order: <%= song.order%></li>
-    <li>Tempo: <%= song.tempo%></li>
-    <li>Notes: <%= song.notes%></li>
-    <li>Lyrics: <%= song.lyrics%></li>
-    <%= link_to 'Remove song', song_path(song), method: :delete, data: { confirm: 'Are you sure?' } %>
-    <%= link_to 'Edit song', edit_song_path(song) %>
-    <%= link_to 'Show song', song_path(song) %>
-    <br>
-  </ol>
-  </div>
-  </div>
-<%end%>
+  <% @songs.each do |song| %>
+    <div class = "song">
+      <ul>
+        <li class = "title"><%= song.title%></li>
+        <li>Program: <%= song.program%></li>
+        <li>Order: <%= song.order%></li>
+        <li>Tempo: <%= song.tempo%></li>
+        <li>Notes: <%= song.notes%></li>
+        <li>Lyrics: <%= song.lyrics%></li>
+        <li>Members: <% song.members.each do |member| %>
+          <br>
+          <%= member.name %>
+        <%end%>
+        
+        </li>
+        <%= link_to 'Remove song', song_path(song), method: :delete, data: { confirm: 'Are you sure?' } %>
+        <%= link_to 'Edit song', edit_song_path(song) %>
+        <%= link_to 'Show song', song_path(song) %>
+        <br>
+      </ul>
+    </div>
+  <%end%>
+</div>
