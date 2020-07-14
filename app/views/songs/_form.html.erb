@@ -19,10 +19,20 @@
     <%= form.label :tempo %><br>
     <%= form.number_field :tempo %>
   </p>
+  <p><% @song.members.each do |member|%>
+        <%= member.id %> 
+        <%end%>
+
+  </p>
   <p>
       <%= form.label :members %>
-      <%=  form.collection_check_boxes :members, @members, :id, :name, include_hidden: false %>
+      <%=  form.collection_check_boxes :member_ids, @members, :id, :name, include_hidden: false%>
   </p>
+
+  <%# <p> %>
+      <%# <%= form.label :members %> 
+      <%# <%=  form.collection_check_boxes :members, @members, :id, :name, include_hidden: false %>
+  <%# </p> %>
   <p>
     <%= form.submit %>
   </p>
